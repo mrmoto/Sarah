@@ -1,0 +1,37 @@
+%Titles
+title1 = 'Scott Roberts, Engin 136-3513';
+title2 = 'Final: Programming';
+
+%User Defined variables
+eps = .0001;
+x1 = 0.1;
+xn = 0.6;
+n = 51;
+
+%Required Calculations
+X = x1 : (xn-x1)/(n-1) : xn;
+Y = func(X);
+Yp= deriv(X);
+
+%Find Roots
+Result = newton(@func, @deriv, .32, .0001);
+
+%FUNCTION Plot
+%subplot(1,2,1)
+plot(X,Y,'linewidth',2)
+line([x1,xn],[0,0]);
+title('Function');
+
+%DERIVATIVE Plot
+% subplot(1,2,2)
+% plot(X,Yp,'linewidth',2)
+% line([x1,xn],[0,0]);
+% title('Derivative');
+
+%OUTPUT (deleted ...file,... so I could print to screen)
+%file =  fopen('C:/Users/ET116/Documents/MATLAB/S_Roberts_Final','w');
+fprintf('Scott Roberts, Engin 136-3513\n');
+fprintf('Programming Final\n\n');
+fprintf('A root of the function is x=%8.6f within %8.6f.\n',Result(1),Result(3));
+fprintf('This result was found in %i steps (Newton method).',Result(2));
+%fclose(file);
